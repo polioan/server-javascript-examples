@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { db } from '../../../db'
+const todos = await db.query('SELECT * FROM "Todos";')
+
+if (Astro.request.method === "POST") {
+	const data = await Astro.request.formData()
+	await db.query(`INSERT INTO "Todos" ("content", "completed") VALUES ("${data.get('content')}", false);`)
+}
+---
+
+<Layout>
+    <main class='p-4'>
+      {todos.map(({ content, completed }) => {
+        return (
+          <div>
+            <label class='flex gap-2 items-center'>
+              {content}
+              <input disabled type='checkbox' checked={completed} />
+            </label>
+          </div>
+        )
+      })}
+      <form method="POST" onsubmit="
+      return false
+      ">
+        <input class='border border-gray-400' type='text' name='content' />
+        <button
+          class='hover:bg-gray-100 border border-gray-400'
+          type='submit'
+        >
+          New
+        </button>
+      </form>
+    </main>
+</Layout>

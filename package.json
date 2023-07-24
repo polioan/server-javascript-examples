@@ -1,0 +1,29 @@
+{
+  "name": "server-javascript-examples",
+  "version": "1.0.0",
+  "private": true,
+  "author": {
+    "name": "Ivan Polushin",
+    "url": "https://t.me/polioan"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=15",
+    "npm": ">=8.0.0"
+  },
+  "engineStrict": true,
+  "prisma": {
+    "seed": "cross-env NODE_ENV=seed node db.js"
+  },
+  "scripts": {
+    "postinstall": "npm run migrate && npm run generate && npm run seed",
+    "migrate": "npx prisma migrate dev --name init",
+    "generate": "npx prisma generate",
+    "seed": "prisma db seed"
+  },
+  "dependencies": {
+    "@prisma/client": "4.5.0",
+    "cross-env": "7.0.3",
+    "prisma": "4.5.0"
+  }
+}

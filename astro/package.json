@@ -1,0 +1,17 @@
+{
+  "name": "astro",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=15",
+    "npm": ">=8.0.0"
+  },
+  "engineStrict": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev"
+  },
+  "dependencies": {
+    "astro": "2.9.1"
+  }
+}
