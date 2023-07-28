@@ -1,0 +1,19 @@
+{
+  "name": "trpc-client",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=15",
+    "npm": ">=8.0.0"
+  },
+  "engineStrict": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@trpc/client": "10.36.0",
+    "typescript": "5.0.2",
+    "vite": "4.4.5"
+  }
+}
